@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+/.idea
+keylines-6.1.2-56105
+
 # testing
 /coverage
 

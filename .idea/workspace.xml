@@ -1,10 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.1\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
+  <component name="ChangeListManager">
+    <list default="true" id="9b90fb5e-52d0-410b-af39-25082500369a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/datanet.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/board.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="4f1174fc-d175-4003-a5b2-7f4be26c6e40" />
+  <component name="ProjectId" id="1jgU716E0qVRN60mRG2g0bZi5cj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="C:\졸업작품\datanet\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\졸업작품\datanet" />
+      <recent name="C:\졸업작품\datanet\public" />
+      <recent name="C:\졸업작품\datanet\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\졸업작품\datanet\src" />
+      <recent name="C:\졸업작품\datanet" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9b90fb5e-52d0-410b-af39-25082500369a" name="Default Changelist" comment="" />
+      <created>1604225063304</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604225063304</updated>
+      <workItem from="1604225065634" duration="285000" />
+      <workItem from="1604225607803" duration="11788000" />
+      <workItem from="1604280624271" duration="4191000" />
+      <workItem from="1604288768197" duration="133000" />
+    </task>
+    <servers>
+      <YouTrack url="https://wkzkfmxk12.myjetbrains.com/youtrack">
+        <option name="defaultSearch" value="프로젝트: Network   상태: QA완료  크키 조절 확인 완료" />
+        <username>kangjihyun</username>
+      </YouTrack>
+    </servers>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="3223" y="357" key="#Servers" timestamp="1604281914194">
+      <screen x="2560" y="95" width="1920" height="1050" />
+    </state>
+    <state x="3223" y="357" key="#Servers/0.0.2048.1250/2560.95.1920.1050@2560.95.1920.1050" timestamp="1604281914194" />
+    <state x="793" y="416" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604226035699">
+      <screen x="0" y="0" width="2048" height="1250" />
+    </state>
+    <state x="793" y="416" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2048.1250/2560.0.2560.1410@0.0.2048.1250" timestamp="1604226035699" />
+    <state x="3315" y="414" key="FileChooserDialogImpl" timestamp="1604288335990">
+      <screen x="2560" y="95" width="1920" height="1050" />
+    </state>
+    <state x="805" y="380" key="FileChooserDialogImpl/0.0.2048.1250/2560.0.2560.1410@0.0.2048.1250" timestamp="1604232372885" />
+    <state x="3315" y="414" key="FileChooserDialogImpl/0.0.2048.1250/2560.95.1920.1050@2560.95.1920.1050" timestamp="1604288335990" />
+    <state x="3021" y="265" key="SettingsEditor" timestamp="1604281854282">
+      <screen x="2560" y="95" width="1920" height="1050" />
+    </state>
+    <state x="3021" y="265" key="SettingsEditor/0.0.2048.1250/2560.95.1920.1050@2560.95.1920.1050" timestamp="1604281854282" />
+    <state width="498" height="444" key="SwitcherDM" timestamp="1604228890334">
+      <screen x="0" y="0" width="2048" height="1250" />
+    </state>
+    <state width="498" height="444" key="SwitcherDM/0.0.2048.1250/2560.0.2560.1410@0.0.2048.1250" timestamp="1604228890334" />
   </component>
 </project>
