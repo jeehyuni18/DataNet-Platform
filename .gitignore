@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 
-.idea
+.idea/*
 keylines-6.1.2-56105
 
 # testing
