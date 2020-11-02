@@ -9,7 +9,6 @@
     "antd": "^4.7.3",
     "axios": "^0.21.0",
     "fusioncharts": "^3.15.3",
-    "keylines": "file:keylines-6.1.2-56105",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-fusioncharts": "^3.1.2",

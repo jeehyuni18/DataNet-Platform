@@ -4,10 +4,9 @@ import FusionCharts from "fusioncharts";
 import Column2D from "fusioncharts/fusioncharts.charts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
+FusionCharts.options.creditLabel = false;
 
-export default function Chart(props) {
-    const [ selectedRowKeys, setSelectedRowKeys ] = useState([]);
-    const [ loading, setLoading ] = useState(false);
+export default function Chart() {
     const chartData = [
         {
             label: "Venezuela",
@@ -44,8 +43,8 @@ export default function Chart(props) {
     ];
     const chartConfigs = {
         type: "column2d", // The chart type
-        width: "700", // Width of the chart
-        height: "400", // Height of the chart
+        width: "100%", // Width of the chart
+        height: "1000", // Height of the chart
         dataFormat: "json", // Data type
         dataSource: {
             // Chart Configuration

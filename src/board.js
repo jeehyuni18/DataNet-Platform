@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react'
-import {Input, Button, Table} from 'antd';
+import {Input, Button, Table, Row} from 'antd';
 import axios from 'axios';
 const { Search } = Input;
 
 export default function Board() {
     const [ data, setData] = useState([]);
-    const [ loading, setLoading ] = useState(false);
     const columns = [
         {
             title: '기업명',
@@ -37,12 +36,12 @@ export default function Board() {
             console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
         },
     };
-    const hasSelected = data.length > 0;
 
     useEffect(() => {
         const loadData = async () => {
-           const res = await axios.get('http://localhost:3020/api/company', {headers: {
-               'Access-Control-Allow-Origin': '*',
+           const res = await axios.get('http://localhost:3020/api/company', {
+               headers: {
+                   'Access-Control-Allow-Origin': '*',
                }});
            const { rows } = res.data
            setData((rows))
@@ -50,19 +49,27 @@ export default function Board() {
         loadData()
     },[])
 
+    const addData = async () => {
+        const res = await axios.post('http://localhost:3020/api/company', {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
+            data: {
+                test: 1
+            }
+        });
+    }
+
     return  (
             <div>
-                <div style={{ marginBottom: 16 }}>
-                    <span style={{ marginLeft: 8 }}>
-                        {hasSelected ? `Selected ${data.length} items` : ''}
-                    </span>
-                </div>
-                <Button  type="primary" style={{ marginBottom: 16 }}>
-                    Add a row
-                </Button>
-                <Button  type="danger" style={{ marginBottom: 16 }}>
-                    Delete
-                </Button>
+                <Row style={{marginTop: 16}}>
+                    <Button type="primary" style={{ marginBottom: 16, marginRight: 16 }} onClick={addData}>
+                        추가
+                    </Button>
+                    <Button type="danger" style={{ marginBottom: 16 }}>
+                        삭제
+                    </Button>
+                </Row>
                 <Table rowKey="kedcd" rowSelection={rowSelection} columns={columns} dataSource={data} />
                 <Search
                     placeholder="input search text"
