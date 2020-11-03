@@ -12,7 +12,7 @@ export default function Graph() {
     const [ chartConfig, setChartConfig ] = useState({});
     const [ companyName, setCompanyName ] = useState('엘지');
     const loadData = async () => {
-        const res = await axios.get(`process.env.API_HOST/api/companyName`, {headers: {
+        const res = await axios.get(`${process.env.API_HOST}/api/companyName`, {headers: {
                 'Access-Control-Allow-Origin': '*',
             }});
         const { rows } = res.data

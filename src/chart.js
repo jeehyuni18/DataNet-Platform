@@ -27,12 +27,11 @@ export default function Chart() {
             width: "100%", // Width of the chart
             height: "1000", // Height of the chart
             dataFormat: "json", // Data type
-
         }
     }
 
     const onSearch = async (type) => {
-        const res = await axios.get(`process.env.API_HOST/company/finance?type=${type}`, {
+        const res = await axios.get(`${process.env.API_HOST}/company/finance?type=${type}`, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             }

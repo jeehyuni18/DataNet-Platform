@@ -33,7 +33,7 @@ const Register =  () => {
     }
 
     const register = async () => {
-        await axios.post(`process.env.API_HOST/api/company`, {
+        await axios.post(`${process.env.API_HOST}/api/company`, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             },
