@@ -9,12 +9,12 @@ import {Menu, Layout} from 'antd';
 import Board from './board'
 import Chart from "./chart";
 import Graph from "./graph";
+import Register from "./register";
 
 const { Header, Footer, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
-export default function MyRouter(props) {
-    console.log(props)
+export default function MyRouter() {
     return (
         <Router>
             <Layout style={{ minHeight: '100vh' }}>
@@ -36,11 +36,6 @@ export default function MyRouter(props) {
                                     Data-Analytics Graph
                                 </Link>
                             </Menu.Item>
-                            <Menu.Item>
-                                <Link to={"/chart"}>
-                                    Data-Analytics Chart
-                                </Link>
-                            </Menu.Item>
                         </SubMenu>
                     </Menu>
                 </Sider>
@@ -57,9 +52,12 @@ export default function MyRouter(props) {
                             <Route path="/graph">
                                 <Graph />
                             </Route>
+                            <Route path="/register">
+                                <Register />
+                            </Route>
                         </Switch>
                     </Content>
-                    <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+                    <Footer style={{ textAlign: 'center' }}>jihyun_kang © 2020 Create</Footer>
                 </Layout>
             </Layout>
         </Router>
