@@ -42,8 +42,7 @@ export default function Chart() {
             if(key === 1) {
                 setDataSource({
                     chart: {
-                        xAxisName: "Country",           //Set the x-axis name
-                        yAxisName: "Reserves (MMbbl)",  //Set the y-axis name
+
                         numberSuffix: "K",
                         theme: "fusion"                 //Set the theme for your chart
                     },
@@ -59,8 +58,7 @@ export default function Chart() {
             } else if (key === 2 || key === "2") {
                 setDataSource2({
                     chart: {
-                        xAxisName: "Country",           //Set the x-axis name
-                        yAxisName: "Reserves (MMbbl)",  //Set the y-axis name
+
                         numberSuffix: "K",
                         theme: "fusion"                 //Set the theme for your chart
                     },
@@ -76,8 +74,7 @@ export default function Chart() {
             }else
                 setDataSource3({
                     chart: {
-                        xAxisName: "Country",           //Set the x-axis name
-                        yAxisName: "Reserves (MMbbl)",  //Set the y-axis name
+
                         numberSuffix: "K",
                         theme: "fusion"                 //Set the theme for your chart
                     },
