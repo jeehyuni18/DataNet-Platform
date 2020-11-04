@@ -19,11 +19,13 @@ export default function MyRouter() {
         <Router>
             <Layout style={{ minHeight: '100vh' }}>
                 <Sider width={300}>
-                    <div style={{
-                        height: '32px',
-                        background: 'rgba(255, 255, 255, 0.2)',
-                        margin: '16px'
-                    }} />
+                    <Link to={"/"}>
+                        <div style={{
+                            height: '32px',
+                            background: 'rgba(255, 255, 255, 0.2)',
+                            margin: '16px'
+                        }} />
+                    </Link>
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                         <Menu.Item key="2" >
                             <Link to={"/board"}>
@@ -43,6 +45,9 @@ export default function MyRouter() {
                     <Header className="site-layout-background" style={{ padding: 0 }} />
                     <Content style={{ margin: '0 16px' }}>
                         <Switch>
+                            <Route exact path="/">
+                                <iframe width="100%" height="100%" src="http://gvc.effectmall.com/gvc"/>
+                            </Route>
                             <Route exact path="/board">
                                 <Board />
                             </Route>
