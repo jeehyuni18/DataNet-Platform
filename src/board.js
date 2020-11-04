@@ -51,7 +51,7 @@ export default function Board() {
 
     useEffect(() => {
         const loadDatas = async () => {
-           const res = await axios.get(`${process.env.REACT_APP_API_HOST}/api/company`, {
+           const res = await axios.get(`${process.env.REACT_APP_API_HOST}:3000/api/company`, {
                headers: {
                    'Access-Control-Allow-Origin': '*',
                }});
@@ -65,7 +65,7 @@ export default function Board() {
     },[loadData])
 
     const addData = async () => {
-        const res = await axios.post(`${process.env.REACT_APP_API_HOST}/api/company`, {
+        const res = await axios.post(`${process.env.REACT_APP_API_HOST}:3000/api/company`, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             },
@@ -76,7 +76,7 @@ export default function Board() {
     }
 
     const deleteCompany = async () => {
-        const res = await axios.delete(`${process.env.REACT_APP_API_HOST}/api/company`, {
+        const res = await axios.delete(`${process.env.REACT_APP_API_HOST}:3000/api/company`, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             },
@@ -88,7 +88,7 @@ export default function Board() {
     }
 
     const onSearch = async () => {
-        const res = await axios.get(`${process.env.REACT_APP_API_HOST}/api/company/search?companyName=${companyName}`, {
+        const res = await axios.get(`${process.env.REACT_APP_API_HOST}:3000/api/company/search?companyName=${companyName}`, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             }
