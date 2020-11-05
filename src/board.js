@@ -82,6 +82,7 @@ export default function Board() {
             },
             data: {
                 kedcd: rowKey
+
             }
         });
         setLoadData(false);

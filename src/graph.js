@@ -8,6 +8,10 @@ const initData = {
     items: [{}],
 }
 
+function setLoadData(b) {
+    
+}
+
 export default function Graph() {
     const [ chartConfig, setChartConfig ] = useState({});
     const [ companyName, setCompanyName ] = useState('엘지');
@@ -24,6 +28,22 @@ export default function Graph() {
                 c: row.color
             }
         })
+        const deleteCompanyName = async () => {
+            const res = await axios.delete(`http://${process.env.REACT_APP_API_HOST}:3000/api/companyName`, {
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                },
+
+                data: {
+                    companyName: rows.companyName
+
+                }
+            });
+            const { rows } = res.data
+            setLoadData(false);
+        }
+
+
         data.push({
             type: 'node',
             id: '0000000044',
