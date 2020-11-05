@@ -8,9 +8,7 @@ const initData = {
     items: [{}],
 }
 
-function setLoadData(b) {
-    
-}
+
 
 export default function Graph() {
     const [ chartConfig, setChartConfig ] = useState({});
@@ -40,6 +38,11 @@ export default function Graph() {
                 }
             });
             const { rows } = res.data
+
+            function setLoadData(b) {
+                
+            }
+
             setLoadData(false);
         }
 
