@@ -1,31 +1,21 @@
-//
-//     React components KeyLines v6.1.2-56105
-//
-//     Copyright © 2011-2020 Cambridge Intelligence Limited.
-//     All rights reserved.
-//
-
-// This file provides React wrappers for the KeyLines chart and time bar
-// You are welcome to make changes for better integration with your own projects
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// Make the KeyLines global available
-export const { KeyLines } = window;
+// Make the VisualChart global available
+export const { VisualChart } = window;
 
 function invoke(fn, ...args) {
   return (typeof fn === 'function') ? fn(...args) : undefined;
 }
 
-// This is the lowest level wrapper of the KeyLines integration - it deals with loading of the
-// KeyLines component, options, resizing and raising KeyLines events up
+// This is the lowest level wrapper of the VisualChart integration - it deals with loading of the
+// VisualChart component, options, resizing and raising VisualChart events up
 
-function createKeyLinesComponent(type, onLoadFn) {
+function createVisualChartComponent(type, onLoadFn) {
   class KlComponent extends React.Component {
     constructor(props) {
       super(props);
-      KeyLines.promisify();
+      VisualChart.promisify();
       this.type = type;
       this.onLoad = onLoadFn;
       // Bind our class specific functions to this
@@ -42,7 +32,7 @@ function createKeyLinesComponent(type, onLoadFn) {
         options: this.props.options,
       };
 
-      KeyLines.create(componentDefinition).then((component) => {
+      VisualChart.create(componentDefinition).then((component) => {
         this.component = component;
         this.component.on('all', this.onEvent);
         this.applyProps().then(() => {
@@ -107,10 +97,10 @@ function createKeyLinesComponent(type, onLoadFn) {
     render() {
       const { containerClassName, style, children } = this.props;
       return (
-        <div ref={(klElement) => { this.klElement = klElement; }} className={containerClassName}
-          style={style}>
-          {children}
-        </div>
+          <div ref={(klElement) => { this.klElement = klElement; }} className={containerClassName}
+               style={style}>
+            {children}
+          </div>
       );
     }
   }
@@ -151,7 +141,7 @@ function createChartComponent() {
     return this.component.layout('standard', options);
   }
 
-  return createKeyLinesComponent('chart', onLoad);
+  return createVisualChartComponent('chart', onLoad);
 }
 
 // Define the Chart component
@@ -163,7 +153,7 @@ function createTimebarComponent() {
     return this.component.zoom('fit', options);
   }
 
-  return createKeyLinesComponent('timebar', onLoad);
+  return createVisualChartComponent('timebar', onLoad);
 }
 
 // Define the Timebar component

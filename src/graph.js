@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import 'keylines'
-import { Chart } from "./react-keylines";
+import 'VisualChart'
+import { Chart } from "./react-visual";
 import axios from "axios";
 
 const initData = {
@@ -14,7 +14,7 @@ export default function Graph() {
     const [ chartConfig, setChartConfig ] = useState({});
     const [ companyName, setCompanyName ] = useState('엘지');
     const loadData = async () => {
-        const res = await axios.get(`http://${process.env.REACT_APP_API_HOST}:3000/api/companyName`, {headers: {
+        const res = await axios.get(`localhost:8081/kang/companyName`, {headers: {
                 'Access-Control-Allow-Origin': '*',
             }});
         const { rows } = res.data
@@ -27,7 +27,7 @@ export default function Graph() {
             }
         })
         const deleteCompanyName = async () => {
-            const res = await axios.delete(`http://${process.env.REACT_APP_API_HOST}:3000/api/companyName`, {
+            const res = await axios.delete(`localhost:8081/kang/companyName`, {
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                 },

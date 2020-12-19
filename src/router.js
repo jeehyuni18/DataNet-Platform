@@ -49,7 +49,7 @@ export default function MyRouter() {
                         <Content style={{ margin: '0 16px' }}>
                             <Switch>
                                 <Route exact path="/">
-                                    <iframe width="100%" height="100%" src="http://gvc.effectmall.com/gvc"/>
+                                    <iframe width="100%" height="100%" src="http://network.effectmall.com/gvc"/>
                                 </Route>
                                 <Route exact path="/board">
                                     <Board />

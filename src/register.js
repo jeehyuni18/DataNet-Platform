@@ -33,7 +33,7 @@ const Register =  () => {
     }
 
     const register = async () => {
-        await axios.post(`http://${process.env.REACT_APP_API_HOST}:3000/api/company`, {
+        await axios.post(`localhost:8081/kang`, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             },
