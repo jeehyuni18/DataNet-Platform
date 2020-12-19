@@ -31,7 +31,7 @@ export default function Chart() {
     }
 
     const onSearch = async (type) => {
-        const res = await axios.get(`localhost:8081/kang/company/finance?type=${type}`, {
+        const res = await axios.get(`${process.env.REACT_APP_HOST}/finance?type=${type}`, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             }

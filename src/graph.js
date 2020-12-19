@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import 'VisualChart'
 import { Chart } from "./react-visual";
 import axios from "axios";
+import {Button} from "antd";
 
 const initData = {
     type: "LinkChart",
@@ -14,11 +15,12 @@ export default function Graph() {
     const [ chartConfig, setChartConfig ] = useState({});
     const [ companyName, setCompanyName ] = useState('엘지');
     const loadData = async () => {
-        const res = await axios.get(`localhost:8081/kang/companyName`, {headers: {
+        const res = await axios.get(`${process.env.REACT_APP_HOST}/node`, {headers: {
                 'Access-Control-Allow-Origin': '*',
             }});
-        const { rows } = res.data
-        const data = rows.map(row => {
+        const { data } = res
+
+        const nodedata = data.map(row => {
             return {
                 type: 'node',
                 id: row.kedcd,
@@ -27,7 +29,7 @@ export default function Graph() {
             }
         })
         const deleteCompanyName = async () => {
-            const res = await axios.delete(`localhost:8081/kang/companyName`, {
+            const res = await axios.delete(`${process.env.REACT_APP_HOST}/node`, {
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                 },
@@ -47,33 +49,33 @@ export default function Graph() {
         }
 
 
-        data.push({
-            type: 'node',
-            id: '0000000044',
-            t: '엘지',
-            c: 'blue'
-        })
-        rows.forEach((link,idx) => {
-            data.push({
-                id: `link${idx}`,
-                id1: '0000000044',
-                id2: link.kedcd,
-                t: "거래처",
-                fs: 9,
-                type: "link",
-                c: "#d4d0e7",
-                fb: true,
-                fbc: "#ffc3c9",
-                w: 2,
-                fc: "#ffffff",
-                a2: false
-            })
-        })
-        console.log(data)
+        // nodedata.push({
+        //     type: 'node',
+        //     id: '0000000044',
+        //     t: '엘지',
+        //     c: 'blue'
+        // })
+        // data.forEach((link,idx) => {
+        //     nodedata.push({
+        //         id: `link${idx}`,
+        //         id1: '0000000044',
+        //         id2: link.kedcd,
+        //         t: "거래처",
+        //         fs: 9,
+        //         type: "link",
+        //         c: "#d4d0e7",
+        //         fb: true,
+        //         fbc: "#ffc3c9",
+        //         w: 2,
+        //         fc: "#ffffff",
+        //         a2: false
+        //     })
+        // })
+        console.log(nodedata)
         setChartConfig({
             data: {
                 type: 'LinkChart',
-                items: data
+                items: nodedata
             },
             options: {
                 handMode: true,
@@ -84,7 +86,12 @@ export default function Graph() {
         loadData()
     },[])
     return  (
-        <Chart data={initData} style={{height:'100%'}} {...chartConfig} />
+        <div>
+            <Button> 기업규모 </Button>
+            <Button> 산업분류 </Button>
+            <Button> Combine </Button>
+        <Chart data={initData} style={{height:'1000px'}} {...chartConfig} />
+        </div>
     )
 }
 
