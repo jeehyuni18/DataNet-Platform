@@ -243,7 +243,6 @@ export default function Graph() {
 
     return  (
         <div>
-            <Button> 기업규모 </Button>
             <Button onClick={sum}> 산업분류 </Button>
             <input onChange={search}/>
             <Button onClick={searchStart}>검색</Button>
