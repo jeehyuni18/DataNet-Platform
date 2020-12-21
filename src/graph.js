@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import 'VisualChart'
 import { Chart } from "./react-visual";
 import axios from "axios";
-import {Button, Input} from "antd";
+import {Button, Card, Input} from "antd";
 
 const initData = {
     type: "LinkChart",
@@ -19,13 +19,23 @@ function getRandomColor() {
 }
 
 const color = {
-    '대기업': getRandomColor(),
-    '중기업': getRandomColor(),
-    '소기업': getRandomColor(),
-    '중견기업': getRandomColor(),
-    '보호대상중견기업': getRandomColor(),
-    '판단제외': getRandomColor(),
-    '소상공인': getRandomColor(),
+    '대기업': '#474ff3',
+    '중기업': '#515a8d',
+    '소기업': '#4fc2c6',
+    '중견기업': '#3bb523',
+    '보호대상중견기업': '#b8e095',
+    '소상공인': '#b471c3',
+    '판단제외': '#bbbbbc',
+}
+
+const size = {
+    '대기업': 9,
+    '중기업': 6,
+    '소기업': 4,
+    '중견기업': 6,
+    '보호대상중견기업': 6,
+    '소상공인': 3,
+    '판단제외': 1,
 }
 
 export default function Graph() {
@@ -56,6 +66,7 @@ export default function Graph() {
                 id: d.kedcd,
                 t: d.companyName,
                 c: color[d.scale],
+                e: size[d.scale],
                 d: {
                     industryName: d.industryName,
                     addr: d.addr
@@ -73,6 +84,8 @@ export default function Graph() {
                 id: uuidv4(),
                 id1: l.standardKedcd,
                 id2: l.relation,
+                a1: true,
+                w: 10
             })
         })
 
@@ -102,12 +115,16 @@ export default function Graph() {
 
         }
     }
+    const chartFunction = async () => {
+        await chartState.clear();
+        await chartState.merge(dataState);
+        await chartState.layout('lens',{fit:true,spacing: 'auto'});
+        await chartState.options({handMode:true})
+    }
+
     useEffect(() => {
         if(chartState) {
-            chartState.clear();
-            chartState.merge(dataState);
-            chartState.layout('lens',{fit:true,spacing: 'auto'});
-            chartState.options({handMode:true})
+            chartFunction()
         }
     },[dataState])
 
@@ -115,9 +132,41 @@ export default function Graph() {
 
     const sum = () => {
         if(chartState) {
-            // dataState.forEach()
-            chartState.combo().combine(
-                [{ ids: ['industryName', 'addr'] }], {});
+            let check = {}
+            chartState.each({type:'node'},item => {
+                const industryName = item.d.industryName;
+                if(check[industryName])
+                    check[industryName].push(item.id);
+                else
+                    check[industryName] = [item.id];
+            })
+            const ids = Object.keys(check).map(key => {
+                return {
+                    ids: check[key]
+                }
+            })
+            const matchsComboDefinitions = Object.keys(check).map((key) => {
+                const fixedNode = chartState.getItem(check[key][0]);
+                return {
+                    ids: check[key],
+                    label: fixedNode.d.industryName,
+                    style: {
+                        c: fixedNode.c,
+                        b: fixedNode.b,
+                        bw: 7,
+                        fi: fixedNode.fi,
+                        d: fixedNode.d,
+                    },
+                    position: 'first',
+                };
+            });
+
+            chartState.combo().combine(matchsComboDefinitions, {
+                animate: true,
+                time: 1500,
+            }).then(res => {
+                console.log(res);
+            });
         }
 
             // chartState.graph().betweenness({}).then( (betweenness) => {
@@ -169,6 +218,7 @@ export default function Graph() {
                 id: uuidv4(),
                 id1: d.standardKedcd,
                 id2: d.relation,
+                a2: true
             })
         })
 
@@ -194,11 +244,40 @@ export default function Graph() {
     return  (
         <div>
             <Button> 기업규모 </Button>
-            <Button> 산업분류 </Button>
-            <Button onClick={sum}> Combine </Button>
+            <Button onClick={sum}> 산업분류 </Button>
             <input onChange={search}/>
             <Button onClick={searchStart}>검색</Button>
         <Chart ready={chart => setChartState(chart)} data={initData} style={{height:'1000px'}} {...chartConfig} />
+        <Card style={{position:'absolute',bottom:'150px'}}>
+            <div>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#474ff3', 'border-radius': '5px'}}/>
+                <span>대기업</span>
+            </div>
+            <div>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#515a8d', 'border-radius': '5px'}}/>
+                <span>중기업</span>
+            </div>
+            <div>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#4fc2c6', 'border-radius': '5px'}}/>
+                <span>소기업</span>
+            </div>
+            <div>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#3bb523', 'border-radius': '5px'}}/>
+                <span>중견기업</span>
+            </div>
+            <div>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#b8e095', 'border-radius': '5px'}}/>
+                <span>보호대상중견기업</span>
+            </div>
+            <div>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#b471c3', 'border-radius': '5px'}}/>
+                <span>소상공인</span>
+            </div>
+            <div>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#bbbbbc', 'border-radius': '5px'}}/>
+                <span>판단제외</span>
+            </div>
+        </Card>
         </div>
     )
 }

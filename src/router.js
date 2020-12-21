@@ -27,7 +27,7 @@ export default function MyRouter() {
                     <Sider width={300}>
                         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                             <Menu.Item key="1" >
-                                <Link to={"/board"}>
+                                <Link to={"/"}>
                                     Main
                                 </Link>
                             </Menu.Item>
@@ -49,13 +49,10 @@ export default function MyRouter() {
                         <Content style={{ margin: '0 16px' }}>
                             <Switch>
                                 <Route exact path="/">
-                                    <iframe width="100%" height="100%" src="http://network.effectmall.com/gvc"/>
+                                    <Graph />
                                 </Route>
                                 <Route exact path="/board">
                                     <Board />
-                                </Route>
-                                <Route path="/chart">
-                                    <Chart />
                                 </Route>
                                 <Route path="/graph">
                                     <Graph />
