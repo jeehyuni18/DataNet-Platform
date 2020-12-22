@@ -51,9 +51,7 @@ export default function Graph() {
     }
 
     const loadData = async () => {
-        const res = await axios.get(`${process.env.REACT_APP_API_HOST}/node`, {headers: {
-                'Access-Control-Allow-Origin': '*',
-            }});
+        const res = await axios.get(`${process.env.REACT_APP_API_HOST}/node`);
         const { data } = res
 
         const nodeData = []
@@ -74,9 +72,7 @@ export default function Graph() {
             kedcdList.push(d.kedcd);
 
         })
-        const res2 = await axios.get(`${process.env.REACT_APP_API_HOST}/link/${kedcdList.join("&")}`, {headers: {
-                'Access-Control-Allow-Origin': '*',
-            }});
+        const res2 = await axios.get(`${process.env.REACT_APP_API_HOST}/link/${kedcdList.join("&")}`);
         res2.data.forEach(l => {
             nodeData.push({
                 type: 'link',
@@ -89,11 +85,7 @@ export default function Graph() {
         })
 
         const deleteCompanyName = async () => {
-            const res = await axios.delete(`${process.env.REACT_APP_API_HOST}/node`, {
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                },
-
+            const res = await axios.delete(`${process.env.REACT_APP_API_HOST}/node`,{
                 data: {
                     companyName: rows.companyName
 
@@ -186,9 +178,7 @@ export default function Graph() {
 
     const searchStart = async () => {
         let finalNode = [];
-        const res = await axios.get(`${process.env.REACT_APP_API_HOST}/node/${searchValue}`, {headers: {
-                'Access-Control-Allow-Origin': '*',
-            }});
+        const res = await axios.get(`${process.env.REACT_APP_API_HOST}/node/${searchValue}`);
         let nodeIds = [];
         let kedcdList = [];
         res.data.forEach(d => {
@@ -204,9 +194,7 @@ export default function Graph() {
             })
             kedcdList.push(d.kedcd);
         })
-        const res2 = await axios.get(`${process.env.REACT_APP_API_HOST}/link/${kedcdList.join("&")}`, {headers: {
-                'Access-Control-Allow-Origin': '*',
-            }});
+        const res2 = await axios.get(`${process.env.REACT_APP_API_HOST}/link/${kedcdList.join("&")}`);
         res2.data.forEach(d => {
             nodeIds.push(d.relation);
             finalNode.push({
@@ -219,9 +207,7 @@ export default function Graph() {
         })
 
 
-        const res3 = await axios.get(`${process.env.REACT_APP_API_HOST}/node/${nodeIds.join("&")}`, {headers: {
-                'Access-Control-Allow-Origin': '*',
-            }});
+        const res3 = await axios.get(`${process.env.REACT_APP_API_HOST}/node/${nodeIds.join("&")}`);
         res3.data.forEach(d => {
             finalNode.push({
                 type: 'node',
