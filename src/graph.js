@@ -249,31 +249,31 @@ export default function Graph() {
         <Chart ready={chart => setChartState(chart)} data={initData} style={{height:'1000px'}} {...chartConfig} />
         <Card style={{position:'absolute',bottom:'150px'}}>
             <div>
-                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#474ff3', 'border-radius': '5px'}}/>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#474ff3', borderRadius: '5px'}}/>
                 <span>대기업</span>
             </div>
             <div>
-                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#515a8d', 'border-radius': '5px'}}/>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#515a8d', borderRadius: '5px'}}/>
                 <span>중기업</span>
             </div>
             <div>
-                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#4fc2c6', 'border-radius': '5px'}}/>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#4fc2c6', borderRadius: '5px'}}/>
                 <span>소기업</span>
             </div>
             <div>
-                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#3bb523', 'border-radius': '5px'}}/>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#3bb523', borderRadius: '5px'}}/>
                 <span>중견기업</span>
             </div>
             <div>
-                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#b8e095', 'border-radius': '5px'}}/>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#b8e095', borderRadius: '5px'}}/>
                 <span>보호대상중견기업</span>
             </div>
             <div>
-                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#b471c3', 'border-radius': '5px'}}/>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#b471c3', borderRadius: '5px'}}/>
                 <span>소상공인</span>
             </div>
             <div>
-                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#bbbbbc', 'border-radius': '5px'}}/>
+                <div style={{width: '10px', height: '10px', display: 'inline-block', background: '#bbbbbc', borderRadius: '5px'}}/>
                 <span>판단제외</span>
             </div>
         </Card>
