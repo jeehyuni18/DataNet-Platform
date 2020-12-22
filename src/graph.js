@@ -146,6 +146,7 @@ export default function Graph() {
                         bw: 7,
                         fi: fixedNode.fi,
                         d: fixedNode.d,
+                        e: check[key].length,
                     },
                     position: 'first',
                 };
