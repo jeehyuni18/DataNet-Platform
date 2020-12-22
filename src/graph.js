@@ -57,7 +57,6 @@ export default function Graph() {
         const nodeData = []
         const kedcdList = [];
         data.forEach(d => {
-
             nodeData.push({
                 type: 'node',
                 id: d.kedcd,
@@ -79,6 +78,8 @@ export default function Graph() {
                 id: uuidv4(),
                 id1: l.standardKedcd,
                 id2: l.relation,
+                t: l.targetKedcd,
+                fs: 100,
                 a1: true,
                 w: 10
             })
@@ -203,6 +204,8 @@ export default function Graph() {
                 id: uuidv4(),
                 id1: d.standardKedcd,
                 id2: d.relation,
+                t: d.targetKedcd,
+                fs: 9,
                 a2: true
             })
         })
